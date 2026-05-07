@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Portfolio · Hoàng Mạnh Dũng · ULIS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Galaxy Color Palette */
+  --bg-space: #030014;
+  --nebula-purple: rgba(88, 28, 135, 0.3);
+  --nebula-blue: rgba(30, 58, 138, 0.3);
+  --surface: rgba(15, 10, 30, 0.6);
+  --border-glow: rgba(168, 85, 247, 0.4);
+  
+  --cyan: #38bdf8;
+  --violet: #a855f7;
+  --pink: #ec4899;
+  --gold: #facc15;
+  --white: #f8fafc;
+  --muted: #94a3b8;
+  
+  --fH: 'Barlow Condensed', sans-serif;
+  --fB: 'Be Vietnam Pro', sans-serif;
+  --fM: 'JetBrains Mono', monospace;
+}
+
+html {
+  background-color: var(--bg-space);
+  /* Static Galaxy Background Gradient */
+  background-image: 
+    radial-gradient(circle at 15% 50%, var(--nebula-purple), transparent 40%),
+    radial-gradient(circle at 85% 30%, var(--nebula-blue), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(236, 72, 153, 0.1), transparent 50%);
+  background-attachment: fixed;
+  color: var(--white);
+  font-family: var(--fB);
+  scroll-behavior: smooth;
+}
+
+body { overflow-x: hidden; }
+
+/* --- NAVIGATION --- */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: center; padding: 20px 24px; }
+.nav-pill {
+  display: flex; align-items: center; gap: 36px;
+  background: rgba(3, 0, 20, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glow); border-radius: 999px; padding: 12px 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.nav-logo { font-family: var(--fH); font-size: 22px; letter-spacing: 0.15em; color: var(--cyan); display: flex; align-items: center; gap: 10px; font-weight: 700; }
+.nav-logo .pulse { width: 8px; height: 8px; background: var(--pink); border-radius: 50%; box-shadow: 0 0 10px var(--pink); }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; font-family: var(--fM); }
+.nav-links a:hover { color: var(--white); }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px 120px; position: relative; z-index: 10; }
+
+/* --- HERO SECTION --- */
+#intro { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 80px; }
+.hero-tag { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(168, 85, 247, 0.5); background: rgba(168, 85, 247, 0.1); color: var(--violet); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; padding: 8px 18px; border-radius: 999px; margin-bottom: 32px; font-family: var(--fM); }
+
+/* Fixed Typography so accents (like in Ạ and Ũ) are not cut off */
+h1 { font-family: var(--fH); font-size: clamp(60px, 10vw, 130px); line-height: 1.15; letter-spacing: 0.02em; margin-bottom: 16px; font-weight: 700; text-transform: uppercase; padding-bottom: 10px; }
+.text-gradient { background: linear-gradient(135deg, var(--white) 10%, var(--cyan) 50%, var(--violet) 90%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+.hero-sub { font-size: 17px; color: var(--muted); font-family: var(--fM); letter-spacing: 0.08em; margin-bottom: 56px; }
+.hero-sub span { color: var(--cyan); }
+
+.hero-grid { display: grid; grid-template-columns: 1fr 360px; gap: 48px; align-items: center; }
+.hero-quote { font-size: 17px; line-height: 1.8; color: rgba(248, 250, 252, 0.8); border-left: 3px solid var(--violet); padding-left: 24px; font-weight: 300; }
+
+.id-card { background: var(--surface); border: 1px solid var(--border-glow); border-radius: 20px; padding: 32px; position: relative; overflow: hidden; backdrop-filter: blur(12px); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+.id-name { font-family: var(--fH); font-size: 32px; letter-spacing: 0.05em; margin-bottom: 6px; font-weight: 600; color: var(--white); text-transform: uppercase; }
+.id-role { font-size: 12px; color: var(--pink); letter-spacing: 0.15em; text-transform: uppercase; font-family: var(--fM); margin-bottom: 24px; }
+.id-rows { display: flex; flex-direction: column; gap: 12px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+.id-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); font-family: var(--fM); }
+.id-row strong { color: var(--cyan); }
+.id-tags { display: flex; gap: 10px; margin-top: 24px; }
+.tag { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border-radius: 6px; font-family: var(--fM); font-weight: 600; }
+.tag-c { background: rgba(56, 189, 248, 0.1); color: var(--cyan); border: 1px solid var(--cyan); }
+.tag-v { background: rgba(250, 204, 21, 0.1); color: var(--gold); border: 1px solid var(--gold); }
+
+/* --- ASSIGNMENTS SECTION (EQUAL GRID) --- */
+.sec { padding-top: 140px; }
+.sec-head { display: flex; align-items: center; gap: 20px; margin-bottom: 48px; }
+.sec-head h2 { font-family: var(--fH); font-size: clamp(36px, 5vw, 56px); letter-spacing: 0.04em; font-weight: 600; text-transform: uppercase; }
+.rule { flex: 1; height: 1px; background: linear-gradient(90deg, var(--violet), transparent); }
+
+.grid-modules { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; }
+
+.mod { background: var(--surface); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 32px; cursor: pointer; position: relative; transition: all 0.3s ease; backdrop-filter: blur(10px); display: flex; flex-direction: column; }
+.mod:hover { transform: translateY(-5px); border-color: var(--violet); box-shadow: 0 10px 30px rgba(168, 85, 247, 0.2); }
+.mod.locked { opacity: 0.7; cursor: not-allowed; }
+.mod.locked:hover { transform: none; border-color: rgba(255,255,255,0.1); box-shadow: none; }
+
+.mod-num { font-family: var(--fH); font-size: 48px; color: rgba(255,255,255,0.05); line-height: 1; margin-bottom: 12px; font-weight: 700; position: absolute; top: 20px; right: 24px; transition: color 0.3s; }
+.mod:hover .mod-num { color: rgba(168, 85, 247, 0.2); }
+
+.mod-tag { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-family: var(--fM); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.sdot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+.sdot.done { background: #10b981; box-shadow: 0 0 8px #10b981; }
+.sdot.wip { background: var(--pink); }
+
+.mod-title { font-family: var(--fH); font-size: 26px; letter-spacing: 0.04em; color: var(--white); margin-bottom: 12px; line-height: 1.2; font-weight: 600; text-transform: uppercase; z-index: 2; position: relative; }
+.mod-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; flex-grow: 1; z-index: 2; position: relative; }
+
+.mod-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); border: 1px solid rgba(56, 189, 248, 0.3); padding: 8px 16px; border-radius: 6px; background: rgba(56, 189, 248, 0.05); font-family: var(--fM); transition: all 0.2s; align-self: flex-start; }
+.mod-btn:hover { background: rgba(56, 189, 248, 0.15); border-color: var(--cyan); color: #fff; }
+.mod-lock { font-size: 11px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; font-family: var(--fM); padding: 8px 16px; border: 1px dashed rgba(255,255,255,0.2); border-radius: 6px; background: rgba(255,255,255,0.02); align-self: flex-start; }
+
+/* --- REFLECTION SECTION --- */
+.reflect-wrap { display: grid; grid-template-columns: 1fr 280px; gap: 32px; align-items: stretch; }
+.reflect-body { background: var(--surface); border: 1px solid var(--border-glow); border-radius: 20px; padding: 40px; position: relative; backdrop-filter: blur(12px); }
+.reflect-body p { font-size: 16px; line-height: 1.9; color: rgba(248, 250, 252, 0.85); margin-bottom: 20px; font-weight: 400; }
+.reflect-body p:last-child { margin-bottom: 0; }
+.reflect-body .hl { color: var(--cyan); font-weight: 600; }
+
+.score { background: rgba(168, 85, 247, 0.05); border: 1px solid var(--violet); border-radius: 20px; padding: 40px 32px; text-align: center; display: flex; flex-direction: column; justify-content: center; backdrop-filter: blur(12px); }
+.score-val { font-family: var(--fH); font-size: 64px; letter-spacing: 0.02em; color: var(--violet); margin-bottom: 8px; font-weight: 700; line-height: 1; text-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+.score-lbl { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); font-family: var(--fM); margin-bottom: 20px; font-weight: 600; }
+.score-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* --- MODALS --- */
+.overlay { display: none; position: fixed; inset: 0; z-index: 9990; background: rgba(3, 0, 15, 0.85); backdrop-filter: blur(10px); align-items: center; justify-content: center; padding: 24px; }
+.overlay.open { display: flex; }
+.mbox { background: #0a0710; border: 1px solid var(--violet); border-radius: 20px; width: 100%; max-width: 900px; max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+.mhead { display: flex; justify-content: space-between; align-items: flex-start; padding: 32px 36px 0; }
+.mhead-info .mlabel { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cyan); font-family: var(--fM); margin-bottom: 8px; }
+.mhead-info .mtitle { font-family: var(--fH); font-size: 32px; letter-spacing: 0.04em; color: var(--white); font-weight: 600; text-transform: uppercase; }
+.mclose { background: none; border: none; color: var(--muted); font-size: 32px; cursor: pointer; line-height: 1; transition: color 0.2s; margin-top: -8px; font-family: var(--fB); }
+.mclose:hover { color: var(--white); }
+.mbody { padding: 24px 36px 36px; }
+
+.pdf-frame { width: 100%; height: 600px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; background: #000; margin-bottom: 20px; }
+.pdf-frame iframe { width: 100%; height: 100%; border: none; }
+.pdf-empty { height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; border: 1px dashed rgba(255,255,255,0.15); border-radius: 12px; color: var(--muted); font-size: 14px; background: rgba(255,255,255,0.02); font-family: var(--fM); text-transform: uppercase; letter-spacing: 0.1em; }
+.pdf-empty .eicon { font-size: 40px; }
+
+.mfooter { display: flex; justify-content: flex-end; }
+
+footer { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; margin-top: 80px; text-align: center; font-size: 12px; letter-spacing: 0.15em; color: rgba(255,255,255,0.3); text-transform: uppercase; font-family: var(--fM); }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-space); }
+::-webkit-scrollbar-thumb { background: var(--violet); border-radius: 3px; }
+
+@media(max-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .reflect-wrap { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  h1 { font-size: 64px; }
+  .pdf-frame { height: 400px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-pill">
+    <div class="nav-logo"><span class="pulse"></span>HMD.ULIS</div>
+    <div class="nav-links">
+      <a href="#intro">Hồ sơ</a>
+      <a href="#assignments">Modules</a>
+      <a href="#reflection">Đánh giá</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<section id="intro">
+  <div class="hero-tag"><span class="dot">•</span> Trạng thái hệ thống: Sẵn sàng</div>
+  <h1>
+    <span class="text-gradient">HOÀNG</span><br>
+    <span class="text-gradient">MẠNH DŨNG</span>
+  </h1>
+  <p class="hero-sub">Sư phạm Tiếng Anh &nbsp;//&nbsp; <span>ULIS K59</span> &nbsp;//&nbsp; Nhập môn CNS &amp; AI</p>
+
+  <div class="hero-grid">
+    <p class="hero-quote">
+      Tích hợp Công nghệ số &amp; AI để tối ưu hóa tri thức, sáng tạo nội dung giảng dạy và định hình tư duy giáo dục thế hệ mới tại không gian số ULIS-VNU.
+    </p>
+    <div class="id-card">
+      <div class="id-name">Hoàng Mạnh Dũng</div>
+      <div class="id-role">SP Tiếng Anh // Khoa NNVHA</div>
+      <div class="id-rows">
+        <div class="id-row"><span>ID_CODE</span><strong>25040049</strong></div>
+        <div class="id-row"><span>BATCH</span><strong>K59</strong></div>
+        <div class="id-row"><span>SERVER</span><strong>ULIS-VNU</strong></div>
+      </div>
+      <div class="id-tags">
+        <span class="tag tag-c">Hoạt động</span>
+        <span class="tag tag-v">Đã xác thực</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="assignments" class="sec">
+  <div class="sec-head">
+    <h2>Hệ thống Modules</h2>
+    <div class="rule"></div>
+  </div>
+
+  <div class="grid-modules">
+    <div class="mod" onclick="openM('m1')">
+      <div class="mod-num">01</div>
+      <div class="mod-tag"><span class="sdot done"></span>Hoàn thành</div>
+      <div class="mod-title">Quản lý tệp &amp; thư mục</div>
+      <div class="mod-desc">Cấu trúc hệ thống lưu trữ Cloud khoa học, quy tắc đặt tên tệp tin và tối ưu hóa dữ liệu cá nhân.</div>
+      <span class="mod-btn">[ Xem chi tiết ] →</span>
+    </div>
+
+    <div class="mod locked">
+      <div class="mod-num">02</div>
+      <div class="mod-tag"><span class="sdot wip"></span>Đang xử lý</div>
+      <div class="mod-title">Tìm kiếm &amp; Đánh giá</div>
+      <div class="mod-desc">Kỹ thuật thẩm định nguồn tin số, lọc nhiễu dữ liệu và xác thực tính học thuật.</div>
+      <span class="mod-lock">Đang cập nhật...</span>
+    </div>
+
+    <div class="mod locked">
+      <div class="mod-num">03</div>
+      <div class="mod-tag"><span class="sdot wip"></span>Đang xử lý</div>
+      <div class="mod-title">Viết Prompt Nâng cao</div>
+      <div class="mod-desc">Cấu trúc lệnh AI: Persona, Task, Context, Format tối ưu đầu ra GenAI.</div>
+      <span class="mod-lock">Đang cập nhật...</span>
+    </div>
+
+    <div class="mod locked">
+      <div class="mod-num">04</div>
+      <div class="mod-tag"><span class="sdot wip"></span>Đang xử lý</div>
+      <div class="mod-title">Hợp tác Trực tuyến</div>
+      <div class="mod-desc">Ứng dụng công cụ làm việc nhóm đồng bộ và bất đồng bộ hiệu suất cao.</div>
+      <span class="mod-lock">Đang cập nhật...</span>
+    </div>
+
+    <div class="mod locked">
+      <div class="mod-num">05</div>
+      <div class="mod-tag"><span class="sdot wip"></span>Đang xử lý</div>
+      <div class="mod-title">Sáng tạo cùng AI</div>
+      <div class="mod-desc">Thiết kế hình ảnh, video và thuyết trình chuyên nghiệp với trí tuệ nhân tạo.</div>
+      <span class="mod-lock">Đang cập nhật...</span>
+    </div>
+
+    <div class="mod locked">
+      <div class="mod-num">06</div>
+      <div class="mod-tag"><span class="sdot wip"></span>Đang xử lý</div>
+      <div class="mod-title">AI Có trách nhiệm</div>
+      <div class="mod-desc">Đạo đức AI, quyền riêng tư và các nguyên tắc sử dụng văn minh, bền vững.</div>
+      <span class="mod-lock">Đang cập nhật...</span>
+    </div>
+  </div>
+</section>
+
+<section id="reflection" class="sec">
+  <div class="sec-head">
+    <h2>Tổng kết</h2>
+    <div class="rule"></div>
+  </div>
+
+  <div class="reflect-wrap">
+    <div class="reflect-body">
+      <p>Qua học phần <span class="hl">Nhập môn CNS &amp; AI</span> tại ULIS-VNU, em đã chuyển đổi tư duy từ việc sử dụng công cụ bản năng sang việc <span class="hl">làm chủ hệ thống số</span>. Từ quản lý tệp tin khoa học đến viết Prompt có cấu trúc, mỗi kỹ năng đều mở ra một chiều không gian mới trong cách em tiếp cận việc học.</p>
+      <p>Portfolio này không chỉ là tập hợp các bài tập — đây là bằng chứng cho hành trình thích nghi của một sinh viên Sư phạm Tiếng Anh trong kỷ nguyên trí tuệ nhân tạo. Mỗi module là một bước tiến trên con đường trở thành giáo viên <span class="hl">4.0</span> trong tương lai.</p>
+      <p>Kỹ năng quan trọng nhất em nhận được là tư duy làm chủ công nghệ: AI chỉ là công cụ hỗ trợ — con người mới là người định hướng và sáng tạo.</p>
+    </div>
+    <div class="score">
+      <div class="score-val">Tốt</div>
+      <div class="score-lbl">Đánh giá cá nhân</div>
+      <div class="score-desc">Cam kết hoàn thành trọn vẹn mục tiêu học phần và sẵn sàng ứng dụng tri thức vào thực tiễn giảng dạy tương lai.</div>
+    </div>
+  </div>
+</section>
+
+<footer>Portfolio_v7 &nbsp;//&nbsp; © 2026 ULIS-VNU &nbsp;//&nbsp; Hoàng Mạnh Dũng</footer>
+</div>
+
+<div class="overlay" id="overlay-m1" onclick="handleOuter(event, 'm1')">
+  <div class="mbox">
+    <div class="mhead">
+      <div class="mhead-info">
+        <div class="mlabel">Module 01 · Đã hoàn thành</div>
+        <div class="mtitle">Quản lý tệp &amp; thư mục</div>
+      </div>
+      <button class="mclose" onclick="closeM('m1')">×</button>
+    </div>
+    <div class="mbody">
+      <div class="pdf-frame">
+        <iframe src="tmpjsn7nt_thao-tac-co-ban-voi-tep-tin-va-thu-muc-.pdf#view=FitH" allow="fullscreen"></iframe>
+      </div>
+      <div class="mfooter">
+        <a href="tmpjsn7nt_thao-tac-co-ban-voi-tep-tin-va-thu-muc-.pdf" target="_blank" class="mod-btn" style="text-decoration:none;">Mở trong Tab mới ↗</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Simple Modal Logic */
+function openM(id) {
+  document.getElementById('overlay-' + id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeM(id) {
+  document.getElementById('overlay-' + id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleOuter(e, id) {
+  if (e.target === e.currentTarget) closeM(id);
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.overlay.open').forEach(o => {
+      o.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+});
+</script>
+</body>
+</html>
